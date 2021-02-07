@@ -19,7 +19,7 @@ Ball = ExtResource( 2 )
 [node name="WallContrainer" type="Node" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WallContrainer"]
-position = Vector2( 145.084, 1037.86 )
+position = Vector2( 303.655, 1419.18 )
 rotation = 0.647517
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -34,7 +34,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="WallContrainer"]
-position = Vector2( 538.878, 786.294 )
+position = Vector2( 829.591, 1031.7 )
 rotation = 0.286234
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -49,7 +49,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="WallContrainer"]
-position = Vector2( 626.425, 1025.78 )
+position = Vector2( 890.709, 1607.21 )
 rotation = -1.25838
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -64,7 +64,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="WallContrainer"]
-position = Vector2( 425.875, 1168.53 )
+position = Vector2( 357.916, 1704.65 )
 rotation = 0.286234
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -79,7 +79,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="WallContrainer"]
-position = Vector2( 178.718, 1172.08 )
+position = Vector2( 510.961, 1353.3 )
 rotation = 0.0122173
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -92,6 +92,15 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallContrainer/StaticBody2D5"]
 rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="Wall" type="StaticBody2D" parent="WallContrainer"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallContrainer/Wall"]
+polygon = PoolVector2Array( 37.7368, 37.4964, 37.7368, 320.658, 52.8388, 1861.06, 1019.37, 1872.39, 1042.02, 26.1699, 1045.79, -4.03403, 1087.32, -4.03403, 1083.55, 1906.37, -0.0181274, 1917.69, 3.75739, -4.03403, 1030.69, -0.258545, 1030.69, 22.3944 )
+
+[node name="Polygon2D" type="Polygon2D" parent="WallContrainer/Wall"]
+color = Color( 0.333333, 0.25098, 0.384314, 1 )
+polygon = PoolVector2Array( 37.7368, 37.4964, 37.7368, 320.658, 52.8388, 1861.06, 1019.37, 1872.39, 1042.02, 26.1699, 1045.79, -4.03403, 1087.32, -4.03403, 1083.55, 1906.37, -0.0181274, 1917.69, 3.75739, -4.03403, 1030.69, -0.258545, 1030.69, 22.3944 )
 
 [node name="BackPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

@@ -2,6 +2,7 @@ extends Node
 
 signal start_game
 
+
 export (PackedScene) var Ball
 
 func _input(event):
@@ -20,7 +21,7 @@ func _input(event):
 func _ready():
 	#$BackPlayer.play()
 	emit_signal("start_game")
-	
+
 	
 func game_over():
 	$BackPlayer.stop()
@@ -42,3 +43,6 @@ func _unhandled_input(event):
 	elif event is InputEventScreenDrag: # Movement.
 		state[event.index] = event.position
 		get_tree().set_input_as_handled()
+
+
+
