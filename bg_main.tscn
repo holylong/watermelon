@@ -18,7 +18,7 @@ Ball = ExtResource( 2 )
 [node name="WallContrainer" type="Node" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WallContrainer"]
-position = Vector2( 303.655, 1419.18 )
+position = Vector2( 288.553, 1358.77 )
 rotation = 0.647517
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -33,7 +33,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="WallContrainer"]
-position = Vector2( 829.591, 1031.7 )
+position = Vector2( 833.367, 959.966 )
 rotation = 0.286234
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -48,7 +48,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="WallContrainer"]
-position = Vector2( 890.709, 1607.21 )
+position = Vector2( 822.75, 1509.05 )
 rotation = -1.25838
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -63,7 +63,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="WallContrainer"]
-position = Vector2( 357.916, 1704.65 )
+position = Vector2( 263.529, 1591.39 )
 rotation = 0.286234
 physics_material_override = SubResource( 1 )
 __meta__ = {
@@ -78,7 +78,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="WallContrainer"]
-position = Vector2( 510.961, 1353.3 )
+position = Vector2( 556.267, 1345.75 )
 rotation = 0.0122173
 physics_material_override = SubResource( 1 )
 __meta__ = {
