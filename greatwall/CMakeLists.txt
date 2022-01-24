@@ -1,15 +1,19 @@
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.10)
 
 project(greatwall)
 
 add_subdirectory(3rdparty/SFML)
 
 file(GLOB xonix_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/xonix.cpp)
+file(GLOB watermelon_SRC ${CMAKE_CURRENT_SOURCE_DIR}/executor/src/hello.cc)
 
 
 add_executable(xonix ${xonix_SRC})
 
 target_link_libraries(xonix PRIVATE sfml-graphics)
+
+add_library(watermelon ${watermelon_SRC})
+target_link_libraries(watermelon PRIVATE sfml-graphics sfml-audio sfml-window sfml-system sfml-main sfml-network openal sfml-activity)
 
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/bin)
