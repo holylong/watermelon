@@ -12,8 +12,10 @@ add_executable(xonix ${xonix_SRC})
 
 target_link_libraries(xonix PRIVATE sfml-graphics)
 
-add_library(watermelon ${watermelon_SRC})
-target_link_libraries(watermelon PRIVATE sfml-graphics sfml-audio sfml-window sfml-system sfml-main sfml-network openal sfml-activity)
+add_library(watermelon SHARED ${watermelon_SRC})
+# target_compile_definitions(watermelon USE_JNI)
+add_definitions(-DUSB_JNI)
+target_link_libraries(watermelon PRIVATE sfml-graphics sfml-audio sfml-window sfml-system sfml-main sfml-network sfml-activity)
 
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/bin)
