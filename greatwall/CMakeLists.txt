@@ -14,8 +14,12 @@ target_link_libraries(xonix PRIVATE sfml-graphics)
 
 add_library(watermelon SHARED ${watermelon_SRC})
 # target_compile_definitions(watermelon USE_JNI)
-add_definitions(-DUSB_JNI)
+# add_definitions(-DUSB_JNI)
+# set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -u ANativeActivity_onCreate")
+
 target_link_libraries(watermelon PRIVATE sfml-graphics sfml-audio sfml-window sfml-system sfml-main sfml-network sfml-activity)
+
+target_link_libraries(watermelon PRIVATE log)
 
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/bin)

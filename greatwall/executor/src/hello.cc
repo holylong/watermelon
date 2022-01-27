@@ -4,11 +4,12 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
 
+#include <android/log.h>
 // Do we want to showcase direct JNI/NDK interaction?
 // Undefine this to get real cross-platform code.
 // Uncomment this to try JNI access; this seems to be broken in latest NDKs
-#define USE_JNI
-
+//#define USE_JNI
+#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "sfml-watermelon", __VA_ARGS__))
 #if defined(USE_JNI)
 // These headers are only needed for direct NDK/JDK interaction
 #include <jni.h>
@@ -21,6 +22,7 @@
 // NDK/JNI sub example - call Java code from native code
 int vibrate(sf::Time duration)
 {
+    LOGI("vibraate enter");
     // First we'll need the native activity handle
     ANativeActivity *activity = sf::getNativeActivity();
 
@@ -69,6 +71,7 @@ int vibrate(sf::Time duration)
 
     // Detach thread again
     vm->DetachCurrentThread();
+    LOGI("vibraate exit");
 }
 #endif
 
@@ -77,6 +80,7 @@ int vibrate(sf::Time duration)
 // ('vibrate()' in this example; undefine 'USE_JNI' above to disable it)
 int main(int argc, char *argv[])
 {
+    LOGI("main enter");
     sf::VideoMode screen(sf::VideoMode::getDesktopMode());
 
     sf::RenderWindow window(screen, "");
@@ -165,4 +169,5 @@ int main(int argc, char *argv[])
             sf::sleep(sf::milliseconds(100));
         }
     }
+    LOGI("main exit");
 }

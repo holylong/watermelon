@@ -1,3 +1,18 @@
 [submodule "greatwall/3rdparty/SFML"]
 	path = greatwall/3rdparty/SFML
 	url = git@github.com:SFML/SFML
+[submodule "greatwall/3rdparty/imgui"]
+	path = greatwall/3rdparty/imgui
+	url = git@github.com:ocornut/imgui
+[submodule "greatwall/3rdparty/SDL"]
+	path = greatwall/3rdparty/SDL
+	url = git@github.com:libsdl-org/SDL
+[submodule "greatwall/3rdparty/SDL_mixer"]
+	path = greatwall/3rdparty/SDL_mixer
+	url = git@github.com:libsdl-org/SDL_mixer
+[submodule "greatwall/3rdparty/SDL_image"]
+	path = greatwall/3rdparty/SDL_image
+	url = git@github.com:libsdl-org/SDL_image
+[submodule "greatwall/3rdparty/sdlpal"]
+	path = greatwall/3rdparty/sdlpal
+	url = git@github.com:sdlpal/sdlpal
