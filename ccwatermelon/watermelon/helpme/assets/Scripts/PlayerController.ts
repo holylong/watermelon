@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, Vec3, systemEvent, SystemEvent, EventMouse, log, Animation } from 'cc';
+import { _decorator, Component, Node, Vec3, systemEvent, SystemEvent, EventMouse, log, Touch, Animation, EventTouch } from 'cc';
 const { ccclass, property } = _decorator;
 
 /**
@@ -45,7 +45,17 @@ export class PlayerController extends Component {
 
     start () {
         console.log("==>> start");
-        systemEvent.on(SystemEvent.EventType.MOUSE_UP,this.onMouseUp, this);
+        systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStart, this);
+    }
+
+    onTouchStart(touch:Touch, event:EventTouch){
+        console.log('==>> touch start')
+        if(event.getLocationX() < 200){
+            this.jumpByStep(1);
+        }else if(event.getLocationX() >= 2000){
+            this.jumpByStep(2);
+        }
     }
 
     onMouseUp(event:EventMouse){
