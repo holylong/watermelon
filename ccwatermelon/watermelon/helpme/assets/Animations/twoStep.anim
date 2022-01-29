@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.AnimationClip",
-    "_name": "oneStep",
+    "_name": "twoStep",
     "_objFlags": 0,
     "_native": "",
     "sample": 60,
@@ -128,7 +128,7 @@
         "__type__": "cc.RealKeyframeValue",
         "interpolationMode": 0,
         "tangentWeightMode": 0,
-        "value": 2,
+        "value": 1.5,
         "rightTangent": 0,
         "rightTangentWeight": 1,
         "leftTangent": 0,

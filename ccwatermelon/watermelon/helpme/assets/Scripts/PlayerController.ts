@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, Vec3, systemEvent, SystemEvent, EventMouse, log } from 'cc';
+import { _decorator, Component, Node, Vec3, systemEvent, SystemEvent, EventMouse, log, Animation } from 'cc';
 const { ccclass, property } = _decorator;
 
 /**
@@ -39,7 +39,8 @@ export class PlayerController extends Component {
     //角色位置目标
     private _targetPos:Vec3 = new Vec3();
 
-    @property({type: Animation})
+    // @property({type: Animation})
+    @property(Animation)
     public BodyAnim: Animation | null = null;
 
     start () {
