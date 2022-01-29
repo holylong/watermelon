@@ -67,7 +67,7 @@ export class PlayerController extends Component {
                 console.log("==>animation")
                 this.BodyAnim.play('oneStep');
             } else if (step === 2) {
-                //this.BodyAnim.play('twoStep');
+                this.BodyAnim.play('twoStep');
                 console.log("==>> 2 step animation")
             }
         }else{
