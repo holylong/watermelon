@@ -1,0 +1,8 @@
+{
+  "__type__": "cc.RenderTexture",
+  "_name": "use-render-texture-asset",
+  "_objFlags": 0,
+  "_native": "",
+  "_width": 512,
+  "_height": 512
+}

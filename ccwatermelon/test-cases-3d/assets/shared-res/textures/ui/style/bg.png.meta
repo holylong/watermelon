@@ -1,0 +1,82 @@
+{
+  "ver": "1.0.21",
+  "importer": "image",
+  "imported": true,
+  "uuid": "5c4847ba-7145-41ca-b78a-26a44dbda85b",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "5c4847ba-7145-41ca-b78a-26a44dbda85b@6c48a",
+      "displayName": "bg",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.21",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "5c4847ba-7145-41ca-b78a-26a44dbda85b"
+      }
+    },
+    "f9941": {
+      "ver": "1.0.9",
+      "importer": "sprite-frame",
+      "uuid": "5c4847ba-7145-41ca-b78a-26a44dbda85b@f9941",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "trimX": 0,
+        "trimY": 0,
+        "width": 14,
+        "height": 14,
+        "rawWidth": 14,
+        "rawHeight": 14,
+        "borderTop": 4,
+        "borderBottom": 4,
+        "borderLeft": 4,
+        "borderRight": 4,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "5c4847ba-7145-41ca-b78a-26a44dbda85b@6c48a",
+        "atlasUuid": "",
+        "packable": true
+      },
+      "displayName": "bg",
+      "id": "f9941",
+      "name": "spriteFrame"
+    }
+  },
+  "userData": {
+    "type": "sprite-frame",
+    "redirect": "5c4847ba-7145-41ca-b78a-26a44dbda85b@f9941",
+    "hasAlpha": true
+  }
+}

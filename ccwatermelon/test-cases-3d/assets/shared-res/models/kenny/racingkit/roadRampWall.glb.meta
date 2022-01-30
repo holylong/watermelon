@@ -1,0 +1,112 @@
+{
+  "ver": "2.0.14",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da",
+  "files": [],
+  "subMetas": {
+    "9130e": {
+      "ver": "1.1.0",
+      "importer": "gltf-mesh",
+      "uuid": "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@9130e",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      },
+      "id": "9130e",
+      "name": "Mesh roadRampWall.mesh",
+      "displayName": ""
+    },
+    "7d412": {
+      "ver": "1.0.14",
+      "importer": "gltf-material",
+      "uuid": "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@7d412",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      },
+      "id": "7d412",
+      "name": "wall.material",
+      "displayName": ""
+    },
+    "d63d5": {
+      "ver": "1.0.14",
+      "importer": "gltf-material",
+      "uuid": "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@d63d5",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1
+      },
+      "id": "d63d5",
+      "name": "grey.material",
+      "displayName": ""
+    },
+    "35ea4": {
+      "ver": "1.0.14",
+      "importer": "gltf-material",
+      "uuid": "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@35ea4",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2
+      },
+      "id": "35ea4",
+      "name": "road.material",
+      "displayName": ""
+    },
+    "090ad": {
+      "ver": "1.0.12",
+      "importer": "gltf-scene",
+      "uuid": "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@090ad",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      },
+      "id": "090ad",
+      "name": "roadRampWall.prefab",
+      "displayName": ""
+    }
+  },
+  "userData": {
+    "normals": 2,
+    "tangents": 2,
+    "dumpMaterials": false,
+    "redirect": "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@090ad",
+    "assetFinder": {
+      "meshes": [
+        "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@9130e"
+      ],
+      "materials": [
+        "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@7d412",
+        "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@d63d5",
+        "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@35ea4"
+      ],
+      "scenes": [
+        "a676eb04-34d3-4ca3-97cf-ef04e2b8a9da@090ad"
+      ],
+      "skeletons": [],
+      "textures": []
+    },
+    "imageMetas": []
+  }
+}

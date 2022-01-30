@@ -1,0 +1,13 @@
+{
+  "ver": "4.0.22",
+  "importer": "typescript",
+  "imported": true,
+  "uuid": "94d1b668-d573-4771-83c7-658be8541ecf",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "importAsPlugin": false,
+    "moduleId": "project:///assets/cases/scripts/EnumCommand.js",
+    "simulateGlobals": []
+  }
+}
