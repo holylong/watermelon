@@ -28,7 +28,7 @@ export class GameManager extends Component {
     public cubePrfb:Prefab | null = null;
     //赛道长度
     @property
-    public roadLength = 50;
+    public roadLength = 500;
     private _road:BlockType[] = [];
 
     // [2]
