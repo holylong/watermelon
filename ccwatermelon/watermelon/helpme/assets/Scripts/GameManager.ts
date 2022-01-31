@@ -1,6 +1,7 @@
 
-import { _decorator, Component,instantiate, Node, Prefab, TERRAIN_BLOCK_VERTEX_SIZE } from 'cc';
+import { _decorator, Vec3, Component,instantiate, Node, Prefab, TERRAIN_BLOCK_VERTEX_SIZE } from 'cc';
 const { ccclass, property } = _decorator;
+import { PlayerController } from './PlayerController';
 
 /**
  * Predefined variables
@@ -17,7 +18,14 @@ const { ccclass, property } = _decorator;
  enum BlockType{
     BT_NONE,
     BT_STONE,
-}
+};
+
+//游戏状态
+enum GameState{
+    GS_INIT,
+    GS_PLAYING,
+    GS_END,
+};
  
 @ccclass('GameManager')
 export class GameManager extends Component {
@@ -31,12 +39,61 @@ export class GameManager extends Component {
     public roadLength = 500;
     private _road:BlockType[] = [];
 
+    @property(PlayerController)
+    public playerCtrl: PlayerController | null = null;
+
+    @property(Node)
+    public startMenu: Node | null = null;
+
+    // private curState:GameState = GameState.GS_INIT;
+
     // [2]
     // @property
     // serializableDummy = 0;
 
     start () {
+        //this.generateRoad();
+        this.curState = GameState.GS_INIT;
+    }
+
+    init(){
+        //激活主界面
+        if(this.startMenu){
+            this.startMenu.active = true;
+        }
+
+        //生成赛道
         this.generateRoad();
+        if(this.playerCtrl){
+            //禁止接受用户操作任务移动指令
+            this.playerCtrl.setInputActive(false);
+            //重置人物位置
+            this.playerCtrl.node.setPosition(Vec3.ZERO);
+        }
+    }
+
+    set curState(value:GameState){
+        switch(value){
+            case GameState.GS_INIT:
+                this.init();
+                break;
+                case GameState.GS_PLAYING:
+                    if(this.startMenu){
+                        this.startMenu.active = false;
+                    }
+                    setTimeout(()=>{
+                        if(this.playerCtrl){
+                            this.playerCtrl.setInputActive(true);
+                        }
+                    }, 0.1)
+                    break;
+                    case GameState.GS_END:
+                        break;
+        }
+    }
+
+    onStartButtonClicked(){
+        this.curState = GameState.GS_PLAYING;
     }
 
     generateRoad(){

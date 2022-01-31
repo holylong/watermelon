@@ -38,6 +38,7 @@ export class PlayerController extends Component {
     private _deltaPos:Vec3 = new Vec3(0,0,0);
     //角色位置目标
     private _targetPos:Vec3 = new Vec3();
+    
 
     // @property({type: Animation})
     @property(Animation)
@@ -45,8 +46,16 @@ export class PlayerController extends Component {
 
     start () {
         console.log("==>> start");
-        systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
-        systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStart, this);
+        //systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        //systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStart, this);
+    }
+
+    setInputActive(active: boolean) {
+        if (active) {
+            systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        } else {
+            systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+        }
     }
 
     onTouchStart(touch:Touch, event:EventTouch){
