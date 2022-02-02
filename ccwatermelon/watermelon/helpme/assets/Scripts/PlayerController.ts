@@ -119,6 +119,7 @@ export class PlayerController extends Component {
                 //end
                 this.node.setPosition(this._targetPos);
                 this._startJump = false;
+                this.onOnceJumpEnd();
             }else{
                 //tween
                 this.node.getPosition(this._curPos);
