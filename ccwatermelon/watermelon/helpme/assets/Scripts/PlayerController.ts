@@ -38,6 +38,7 @@ export class PlayerController extends Component {
     private _deltaPos:Vec3 = new Vec3(0,0,0);
     //角色位置目标
     private _targetPos:Vec3 = new Vec3();
+    private _curMoveIndex = 0;
     
 
     // @property({type: Animation})
@@ -98,6 +99,16 @@ export class PlayerController extends Component {
         this._curJumpSpeed = this._jumpStep/this._jumpTime;
         this.node.getPosition(this._curPos);
         Vec3.add(this._targetPos, this._curPos, new Vec3(this._jumpStep,0,0));
+
+        this._curMoveIndex += step;
+    }
+
+    onOnceJumpEnd(){
+        this.node.emit('JumpEnd', this._curMoveIndex);
+    }
+
+    reset(){
+        this._curMoveIndex = 0;
     }
 
     update (deltaTime: number) {

@@ -1,5 +1,5 @@
 
-import { _decorator, Vec3, Component,instantiate, Node, Prefab, TERRAIN_BLOCK_VERTEX_SIZE } from 'cc';
+import { _decorator, Vec3, Component,instantiate, Node, Prefab, Label, TERRAIN_BLOCK_VERTEX_SIZE } from 'cc';
 const { ccclass, property } = _decorator;
 import { PlayerController } from './PlayerController';
 
@@ -45,6 +45,10 @@ export class GameManager extends Component {
     @property(Node)
     public startMenu: Node | null = null;
 
+    @property(Label)
+    public stepsLabel:Label | null = null;
+
+
     // private curState:GameState = GameState.GS_INIT;
 
     // [2]
@@ -54,6 +58,15 @@ export class GameManager extends Component {
     start () {
         //this.generateRoad();
         this.curState = GameState.GS_INIT;
+        this.playerCtrl?.node.on('JumpEnd', this.onPlayerJumpEnd, this);
+    }
+
+    onPlayerJumpEnd(moveIndex:number){
+        if(this.stepsLabel){
+            // 因为在最后一步可能出现步伐大的跳跃，但是此时无论跳跃是步伐大还是步伐小都不应该多增加分数
+            this.stepsLabel.string = '' + (moveIndex >= this.roadLength ? this.roadLength : moveIndex);
+        }
+        this.checkResult(moveIndex);
     }
 
     init(){
@@ -70,30 +83,41 @@ export class GameManager extends Component {
             //重置人物位置
             this.playerCtrl.node.setPosition(Vec3.ZERO);
         }
+        this.playerCtrl.reset();
     }
 
-    set curState(value:GameState){
-        switch(value){
-            case GameState.GS_INIT:
-                this.init();
-                break;
-                case GameState.GS_PLAYING:
-                    if(this.startMenu){
-                        this.startMenu.active = false;
-                    }
-                    setTimeout(()=>{
-                        if(this.playerCtrl){
-                            this.playerCtrl.setInputActive(true);
-                        }
-                    }, 0.1)
-                    break;
-                    case GameState.GS_END:
-                        break;
-        }
-    }
+    // set curState(value:GameState){
+    //     switch(value){
+    //         case GameState.GS_INIT:
+    //             this.init();
+    //             break;
+    //             case GameState.GS_PLAYING:
+    //                 if(this.startMenu){
+    //                     this.startMenu.active = false;
+    //                 }
+    //                 setTimeout(()=>{
+    //                     if(this.playerCtrl){
+    //                         this.playerCtrl.setInputActive(true);
+    //                     }
+    //                 }, 0.1)
+    //                 break;
+    //                 case GameState.GS_END:
+    //                     break;
+    //     }
+    // }
 
     onStartButtonClicked(){
         this.curState = GameState.GS_PLAYING;
+    }
+
+    checkResult(moveIndex:number){
+        if(moveIndex < this.roadLength){
+            if(this._road[moveIndex] == BlockType.BT_NONE){
+                this.curState = GameState.GS_INIT;
+            }
+        }else{
+            this.curState = GameState.GS_INIT;
+        }
     }
 
     generateRoad(){
@@ -141,6 +165,30 @@ export class GameManager extends Component {
 
     update (deltaTime: number) {
         // [4]
+    }
+
+    set curState (value: GameState) {
+        switch(value) {
+            case GameState.GS_INIT:
+                this.init();
+                break;
+            case GameState.GS_PLAYING:
+                if (this.startMenu) {
+                    this.startMenu.active = false;
+                }
+   
+                if (this.stepsLabel) {
+                    this.stepsLabel.string = '0';   // 将步数重置为0
+                }
+                setTimeout(() => {      // 直接设置 active 会直接开始监听鼠标事件，这里做了延迟处理
+                    if (this.playerCtrl) {
+                        this.playerCtrl.setInputActive(true);
+                    }
+                }, 0.1);
+                break;
+            case GameState.GS_END:
+                break;
+        }
     }
 }
 
