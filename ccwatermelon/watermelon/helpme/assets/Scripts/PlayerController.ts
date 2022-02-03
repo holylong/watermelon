@@ -53,13 +53,17 @@ export class PlayerController extends Component {
 
     setInputActive(active: boolean) {
         if (active) {
-            systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            //systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            //this.node.on(Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
+            systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
         } else {
-            systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            //systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            // this.node.off(Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
+            systemEvent.off(SystemEvent.EventType.TOUCH_START, this.onTouchStartCallback, this);
         }
     }
 
-    onTouchStart(touch:Touch, event:EventTouch){
+    onTouchStartCallback(touch:Touch, event:EventTouch){
         console.log('==>> touch start')
         if(event.getLocationX() < 200){
             this.jumpByStep(1);
