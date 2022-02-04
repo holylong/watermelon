@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, Vec3, systemEvent, SystemEvent, EventMouse, log, Touch, Animation, EventTouch } from 'cc';
+import { _decorator, Component, Node, Vec3, systemEvent, SystemEvent, EventMouse, log, Touch, Animation, EventTouch, view, screen } from 'cc';
 const { ccclass, property } = _decorator;
 
 /**
@@ -53,21 +53,27 @@ export class PlayerController extends Component {
 
     setInputActive(active: boolean) {
         if (active) {
-            //systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
             //this.node.on(Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
-            systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
+            systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStartCallback, this, false);
         } else {
-            //systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
+            systemEvent.off(SystemEvent.EventType.MOUSE_UP, this.onMouseUp, this);
             // this.node.off(Node.EventType.TOUCH_START, this.onTouchStartCallback, this, true);
             systemEvent.off(SystemEvent.EventType.TOUCH_START, this.onTouchStartCallback, this);
         }
     }
 
+    /**
+     * 
+     * @param touch 触摸回调
+     * @param event 
+     */
     onTouchStartCallback(touch:Touch, event:EventTouch){
-        console.log('==>> touch start')
-        if(event.getLocationX() < 200){
+        console.log('==>> touch start x:' + event.getLocationX() + ' y:' + event.getLocationY());
+        console.log("==>> frame size width:", screen.windowSize.width, " height:", screen.windowSize.height);
+        if(event.getLocationX() < screen.windowSize.width/2){
             this.jumpByStep(1);
-        }else if(event.getLocationX() >= 2000){
+        }else/* if(event.getLocationX() >= 2000)*/{
             this.jumpByStep(2);
         }
     }
