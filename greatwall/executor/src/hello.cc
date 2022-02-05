@@ -8,7 +8,7 @@
 // Do we want to showcase direct JNI/NDK interaction?
 // Undefine this to get real cross-platform code.
 // Uncomment this to try JNI access; this seems to be broken in latest NDKs
-//#define USE_JNI
+#define USE_JNI
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "sfml-watermelon", __VA_ARGS__))
 #if defined(USE_JNI)
 // These headers are only needed for direct NDK/JDK interaction
