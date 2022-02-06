@@ -22,22 +22,22 @@
         "gltfIndex": 0
       }
     },
-    "1cdc4": {
+    "1f2a9": {
       "importer": "gltf-embeded-image",
-      "uuid": "ac748162-d4fa-4662-b822-d37a5c2147fb@1cdc4",
+      "uuid": "ac748162-d4fa-4662-b822-d37a5c2147fb@1f2a9",
       "displayName": "",
-      "id": "1cdc4",
-      "name": "贴图 #3.image",
+      "id": "1f2a9",
+      "name": "trees01.jpg.image",
+      "userData": {
+        "gltfIndex": 0
+      },
       "ver": "1.0.3",
       "imported": true,
       "files": [
-        ".png",
+        ".jpg",
         ".json"
       ],
-      "subMetas": {},
-      "userData": {
-        "gltfIndex": 0
-      }
+      "subMetas": {}
     },
     "bfae8": {
       "ver": "1.0.21",
@@ -59,8 +59,8 @@
         "mipfilter": "none",
         "premultiplyAlpha": false,
         "anisotropy": 0,
-        "isUuid": false,
-        "imageUuidOrDatabaseUri": "db://assets/model/tree/trees01.jpg"
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "ac748162-d4fa-4662-b822-d37a5c2147fb@1f2a9"
       }
     },
     "4eb3d": {
@@ -118,9 +118,8 @@
     },
     "imageMetas": [
       {
-        "name": "贴图 #3",
-        "remap": "db://assets/model/tree/trees01.jpg",
-        "uri": "ac748162-d4fa-4662-b822-d37a5c2147fb@1cdc4"
+        "name": "trees01.jpg",
+        "uri": "ac748162-d4fa-4662-b822-d37a5c2147fb@1f2a9"
       }
     ],
     "legacyFbxImporter": true
