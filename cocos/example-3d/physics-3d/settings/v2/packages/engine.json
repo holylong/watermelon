@@ -107,15 +107,16 @@
       "base",
       "gfx-webgl",
       "gfx-webgl2",
-      "profiler",
-      "tween",
       "3d",
+      "2d",
+      "ui",
       "particle",
       "physics-ammo",
       "primitive",
+      "profiler",
+      "tween",
       "terrain",
-      "2d",
-      "ui"
+      "marionette"
     ],
     "noDeprecatedFeatures": {
       "value": false,
