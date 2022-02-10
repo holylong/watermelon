@@ -19,6 +19,7 @@ android {
         externalNativeBuild {
             cmake {
                 cppFlags "-std=c++17"
+                arguments "-DSFML_OS_ANDROID=TRUE"
             }
 
         }
