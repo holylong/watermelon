@@ -32,6 +32,7 @@
 #include <cassert>
 
 #define LOGE(...) ((void)__android_log_print(ANDROID_LOG_INFO, "sfml-error", __VA_ARGS__))
+#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "sfml-system-info", __VA_ARGS__))
 
 LogcatStream::LogcatStream() :
 std::streambuf()
@@ -41,6 +42,7 @@ std::streambuf()
 
 std::streambuf::int_type LogcatStream::overflow (std::streambuf::int_type c)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     if (c == '\n')
     {
         m_message.push_back(static_cast<char>(c));
@@ -60,17 +62,20 @@ namespace priv
 
 ActivityStates*& getActivityStatesPtr()
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     static ActivityStates* states = nullptr;
     return states;
 }
 
 void resetActivity(ActivityStates* initializedStates)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     getActivityStatesPtr() = initializedStates;
 }
 
 ActivityStates& getActivity()
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     ActivityStates* const states = getActivityStatesPtr();
     assert(states != nullptr);
     return *states;

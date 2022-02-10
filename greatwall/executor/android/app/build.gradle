@@ -18,7 +18,8 @@ android {
 
         externalNativeBuild {
             cmake {
-                cppFlags "-std=c++17"
+                cppFlags "-std=c++17 -Wno-unused-parameter -Wno-unused-result"
+                cFlags "-Wno-unused-parameter -Wno-unused-result"
                 arguments "-DSFML_OS_ANDROID=TRUE"
             }
 

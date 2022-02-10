@@ -43,6 +43,7 @@
 #include <SFML/System/Err.hpp>
 #include <android/window.h>
 #include <android/native_activity.h>
+#include <android/log.h>
 #include <cstring>
 #include <cassert>
 #include <mutex>
@@ -51,6 +52,9 @@
 #define SF_GLAD_EGL_IMPLEMENTATION
 #include <glad/egl.h>
 
+
+#define LOGE(...) ((void)__android_log_print(ANDROID_LOG_INFO, "sfml-main", __VA_ARGS__))
+#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "sfml-main", __VA_ARGS__))
 
 extern int main(int argc, char *argv[]);
 
@@ -62,6 +66,7 @@ namespace priv
 ////////////////////////////////////////////////////////////
 int getAndroidApiLevel(ANativeActivity* activity)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     JNIEnv* lJNIEnv = activity->env;
 
     jclass versionClass = lJNIEnv->FindClass("android/os/Build$VERSION");
@@ -82,6 +87,7 @@ int getAndroidApiLevel(ANativeActivity* activity)
 ////////////////////////////////////////////////////////////
 ActivityStates* retrieveStates(ANativeActivity* activity)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     assert(activity != nullptr);
 
     // Hide the ugly cast we find in each callback function
@@ -92,6 +98,7 @@ ActivityStates* retrieveStates(ANativeActivity* activity)
 ////////////////////////////////////////////////////////////
 static void initializeMain(ActivityStates* states)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     // Protect from concurrent access
     std::scoped_lock lock(states->mutex);
 
@@ -116,6 +123,7 @@ static void initializeMain(ActivityStates* states)
 ////////////////////////////////////////////////////////////
 static void terminateMain(ActivityStates* states)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     // Protect from concurrent access
     std::scoped_lock lock(states->mutex);
 
@@ -128,6 +136,7 @@ static void terminateMain(ActivityStates* states)
 ////////////////////////////////////////////////////////////
 void* main(ActivityStates* states)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     // Initialize the thread before giving the hand
     initializeMain(states);
 
@@ -153,6 +162,7 @@ void* main(ActivityStates* states)
 ////////////////////////////////////////////////////////////
 void goToFullscreenMode(ANativeActivity* activity)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     // Get the current Android API level.
     int apiLevel = sf::priv::getAndroidApiLevel(activity);
 
@@ -210,6 +220,7 @@ void goToFullscreenMode(ANativeActivity* activity)
 
 void getScreenSizeInPixels(ANativeActivity* activity, int* width, int* height)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     // Perform the following Java code:
     //
     // DisplayMetrics dm = new DisplayMetrics();
@@ -246,6 +257,7 @@ void getScreenSizeInPixels(ANativeActivity* activity, int* width, int* height)
 ////////////////////////////////////////////////////////////
 static void onStart(ANativeActivity* activity)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     (void) activity;
 }
 
@@ -253,6 +265,7 @@ static void onStart(ANativeActivity* activity)
 ////////////////////////////////////////////////////////////
 static void onResume(ANativeActivity* activity)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     // Retrieve our activity states from the activity instance
     sf::priv::ActivityStates* states = sf::priv::retrieveStates(activity);
     std::scoped_lock lock(states->mutex);
@@ -271,6 +284,7 @@ static void onResume(ANativeActivity* activity)
 ////////////////////////////////////////////////////////////
 static void onPause(ANativeActivity* activity)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     // Retrieve our activity states from the activity instance
     sf::priv::ActivityStates* states = sf::priv::retrieveStates(activity);
     std::scoped_lock lock(states->mutex);
@@ -286,6 +300,7 @@ static void onPause(ANativeActivity* activity)
 ////////////////////////////////////////////////////////////
 static void onStop(ANativeActivity* activity)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     (void) activity;
 }
 

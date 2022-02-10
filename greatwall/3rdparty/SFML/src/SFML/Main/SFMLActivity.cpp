@@ -41,6 +41,7 @@ namespace {
 
 const char *getLibraryName(JNIEnv* lJNIEnv, jobject& objectActivityInfo)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     // This function reads the value of meta-data "sfml.app.lib_name"
     // found in the Android Manifest file and returns it. It performs the
     // following Java code using the JNI interface:
@@ -87,6 +88,7 @@ const char *getLibraryName(JNIEnv* lJNIEnv, jobject& objectActivityInfo)
 
 void* loadLibrary(const char* libraryName, JNIEnv* lJNIEnv, jobject& ObjectActivityInfo)
 {
+    LOGI("%s [%d] %s %s", __FILE__ , __LINE__, __FUNCTION__, libraryName);
     // Find out the absolute path of the library
     jclass ClassActivityInfo = lJNIEnv->FindClass("android/content/pm/ActivityInfo");
     jfieldID FieldApplicationInfo = lJNIEnv->GetFieldID(ClassActivityInfo, "applicationInfo", "Landroid/content/pm/ApplicationInfo;");
@@ -128,6 +130,7 @@ void* loadLibrary(const char* libraryName, JNIEnv* lJNIEnv, jobject& ObjectActiv
 
 void ANativeActivity_onCreate(ANativeActivity* activity, void* savedState, size_t savedStateSize)
 {
+    LOGI("%s [%d] %s", __FILE__ , __LINE__, __FUNCTION__);
     // Before we can load a library, we need to find out its location. As
     // we're powerless here in C/C++, we need the JNI interface to communicate
     // with the attached Java virtual machine and perform some Java calls in
@@ -203,5 +206,6 @@ void ANativeActivity_onCreate(ANativeActivity* activity, void* savedState, size_
         exit(1);
     }
 
+    //死循环
     ANativeActivity_onCreate(activity, savedState, savedStateSize);
 }
