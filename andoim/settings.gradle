@@ -1,0 +1,2 @@
+rootProject.name = "and-oim"
+include ':app'

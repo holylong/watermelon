@@ -1,6 +1,3 @@
-[submodule "greatwall/3rdparty/SFML"]
-	path = greatwall/3rdparty/SFML
-	url = git@github.com:SFML/SFML
 [submodule "greatwall/3rdparty/imgui"]
 	path = greatwall/3rdparty/imgui
 	url = git@github.com:ocornut/imgui
