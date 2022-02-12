@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed = 4;
-    public float init_speed=5;
+    public float speed = 20;
+    public float init_speed=20;
     private float maxSpeed = 20;
     InputDirection inputDirection;
     Vector3 mousePos;
