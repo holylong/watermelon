@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed = 1;
+    public float speed = 4;
     public float init_speed=5;
     private float maxSpeed = 20;
     InputDirection inputDirection;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     bool doubleJump = false;
     bool isQuickMoving = false;
     float saveSpeed;
-    float quickMoveDuration = 3;
+    float quickMoveDuration = 10;
     public float quickMoveTimeLeft;
     IEnumerator quickMoveCor;
 
