@@ -4,9 +4,12 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed = 20;
-    public float init_speed = 20;
+    public float speed = 1;
+    public float init_speed = 1;
     private float maxSpeed = 20;
+
+    private float deltaCount = 0;
+
     InputDirection inputDirection;
     Vector3 mousePos;
     bool activeInput;
@@ -117,6 +120,9 @@ public class PlayerController : MonoBehaviour {
 
     private void UpdateSpeed()
     {
+        deltaCount += Time.deltaTime;
+        speed += Time.deltaTime;
+        Debug.Log("update speed:" + speed + " deltaCount:" + deltaCount);
         speedAddCount += speed * Time.deltaTime;
         if (speedAddCount >= speedAddDistance)
         {
