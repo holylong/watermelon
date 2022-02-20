@@ -15,7 +15,7 @@ public class Coin : Item {
     public override void HitItem()
     {
         base.HitItem();
-        GameAttribute.instance.AddCoin(1);
+        //GameAttribute.instance.AddCoin(1);
     }
 
     public override void PlayHitAudio()

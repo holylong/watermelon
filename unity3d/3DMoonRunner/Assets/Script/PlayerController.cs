@@ -498,7 +498,8 @@ public class PlayerController : MonoBehaviour {
 
         //statusText.text = GetTime(multiplyTimeLeft);
         UpdateItemTime();
-	}
+        GameAttribute.instance.SetCoin((int)speed);
+    }
 
     private void UpdateItemTime()
     {

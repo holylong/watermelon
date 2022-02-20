@@ -32,11 +32,16 @@ public class GameAttribute : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Text_Coin.text = coin.ToString();
+        Text_Coin.text = coin.ToString() + " km/h";
 	}
 
-    public void AddCoin(int coinNumber)
+    //public void AddCoin(int coinNumber)
+    //{
+    //    coin += multiply * coinNumber;
+    //}
+
+    public void SetCoin(int coinNumber)
     {
-        coin += multiply * coinNumber;
+        coin = coinNumber;
     }
 }
